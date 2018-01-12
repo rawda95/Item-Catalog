@@ -1,8 +1,8 @@
+from passlib.apps import custom_app_context as pwd_context
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-from passlib.apps import custom_app_context as pwd_context
 
 Base = declarative_base()
 
@@ -57,10 +57,10 @@ class Item(Base):
             'name': self.name,
             'description': self.description,
             'id': self.id,
-            'category':self.category_id
-
+            'category': self.category_id
 
         }
+
 
 engine = create_engine('sqlite:///itemsCatalog.db')
 
