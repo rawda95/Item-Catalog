@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%if not notexisting%}
+<h1>{{category.name}}</h1>
+<p>
+    {%for item in items%}
+    {{item.name}}
+    <br>
+    {%endfor%}
+</p>
+{%endif%}
+{%if notexisting %}
+{{ notexisting }}
+{%endif%}
+
+</body>
+</html>

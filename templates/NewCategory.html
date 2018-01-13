@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action={{url_for('NewCategory')}} method="post">
+    <input name="name" type="text">
+	<button type="submit" class="" id="" type="submit">
+        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Create
+    </button>
+</form>
+{%if error%}
+<p>{{error}}</p>
+{%endif%}
+</body>
+</html>

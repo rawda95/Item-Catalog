@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%if not notexisting%}
+<form action="{{ url_for('deleteCategory',category_name = category.name)}}" method="post">
+    <h4>want to delete {{category.name}} category</h4>
+    <button type="submit" class="" id="" type="submit">
+        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>delete
+    </button>
+</form>
+ <a href = '{{url_for("main")}}'>
+		<button class="">
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+	</a>
+{%endif%}
+{%if notexisting %}
+{{ notexisting }}
+{%endif%}
+
+</body>
+</html>

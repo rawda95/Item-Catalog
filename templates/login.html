@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+            if request.form['name']:
+                    ifitems = session.query(Item).filter_by(name=request.form['name'],
+                                                            category_id=category.id).first()
+                    if item.name == request.form['name']:
+
+                        item.name = request.form['name']
+                if request.form['description']:
+                    item.description = request.form['description']
+                session.add(item)
+                session.commit()
+                return redirect(url_for('ShowItem'))
+            else:
+                return render_template('EditItem.html', item=item, category=category)
+        else:
+            return render_template('EditItem.html',
+                                   category=category ,
+                                   error= 'no item with that name %s in that category %s'
+                                   % (item_name, category_name))
+    else:
+        return render_template('EditItem.html',
+                               error='no category with that name %s '
+                                     % category_name)
+
+</body>
+</html>
