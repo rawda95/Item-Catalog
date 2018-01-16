@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
+{% if 'username' not in session%}
+<a href="{{url_for('showLogin')}}"> click here to login </a>
+{%else%}
+<a href="{{url_for('disconnect')}}">Disconnect</a>
+{%endif%}
 main
 {%for category in categories%}
     {{category.name}}
