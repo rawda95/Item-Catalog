@@ -391,7 +391,7 @@ def EditCategory(category_name):
 @app.route('/category/<string:category_name>/delete', methods=['POST', "GET"])
 def deleteCategory(category_name):
     if 'username' not in login_session:
-        return redirect(url_for('login'))
+        return redirect(url_for('showLogin'))
     category = session.query(Category).filter_by(name=category_name).first()
     # if the category in database
     if category is not None:
