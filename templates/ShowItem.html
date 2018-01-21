@@ -1,15 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{%if not error%}
-{{item.name}}
-<br>
-{{item.description}}
+
+
+{% extends "index.html" %}
+{% block content %}
+
+<div class="col-sm-12 column">
+{%if not notexisting%}
+
+	<h1  class="text center bigsize">{{item.name}}</h1>
+	<h3 class="center subtext">{{item.description}} </h3>
+
 {%endif%}
-{{error}}
-</body>
-</html>
+
+{%if notexisting %}
+<h4 class="center error mid"> {{notexisting}} </h4>
+{%endif%}
+
+
+</div>
+{%endblock%}
+
+

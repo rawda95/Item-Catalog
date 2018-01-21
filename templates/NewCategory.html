@@ -1,18 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action={{url_for('NewCategory')}} method="post">
-    <input name="name" type="text">
-	<button type="submit" class="" id="" type="submit">
-        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Create
+
+
+
+{% extends "index.html" %}
+{% block content %}
+<div>
+	<h1 class="center text mid"> Create New Category </h1>
+</div>
+<br> <br>
+<form class="form-inline center" action={{url_for('NewCategory')}} method="post">
+   <div class="form-group">
+      <label class="sr-only" for="name">name:</label>
+    <input name="name" type="text" placeholder=' Enter name'>
+    </div>
+
+	<button type="submit" class="btn btn-success but" id="" type="submit">
+        <span class="" aria-hidden="true"></span>Create
     </button>
 </form>
+<br>
 {%if error%}
-<p>{{error}}</p>
+<h4 class="center text mid"> {{error}} </h4>
+
 {%endif%}
-</body>
-</html>
+{%endblock%}
+
+
+

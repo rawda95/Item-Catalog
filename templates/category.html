@@ -1,0 +1,17 @@
+<div class="col-sm-4 sidenav">
+	<h1 class="text">categories</h1>
+
+{%for category in categories%}
+    <a class="" href="{{url_for('ShowCategoryItems',category_name=category.name)}}">
+		<button type="button" class="btn-link">
+			<span>
+			 <li class="subtext">{{category.name}}  </li>
+			</span>
+
+		</button>
+	</a>
+<br>
+<br>
+{% endfor %}
+	
+</div>

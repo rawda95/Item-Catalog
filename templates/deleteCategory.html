@@ -1,25 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+
+{% extends "index.html" %}
+{% block content %}
 {%if not notexisting%}
-<form action="{{ url_for('deleteCategory',category_name = category.name)}}" method="post">
-    <h4>want to delete {{category.name}} category</h4>
-    <button type="submit" class="" id="" type="submit">
-        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>delete
+<div>
+	<h1 class="center text mid"> Delete {{category.name}} </h1>
+</div>
+<br> <br>
+<div class="delete">
+<form  class="form-inline center left" 
+action="{{ url_for('deleteCategory',category_name = category.name)}}" method="post">
+	<button type="submit" class="btn btn-success but" id="" type="submit">
+        <span class="" aria-hidden="true"></span>delete
     </button>
 </form>
- <a href = '{{url_for("main")}}'>
-		<button class="">
-		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+ <a href = '{{url_for("main")}}' class="center mid">
+		<button class="btn btn-success but ">
+		<span class="" aria-hidden="true"></span> Cancel</button>
 	</a>
 {%endif%}
+<br>
 {%if notexisting %}
-{{ notexisting }}
+<h4 class="center text mid"> {{notexisting}} </h4>
 {%endif%}
+</div>
+{%endblock%}
 
-</body>
-</html>
+
+

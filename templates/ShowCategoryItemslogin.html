@@ -1,0 +1,43 @@
+
+{% extends "index.html" %}
+{% block content %}
+
+{% include "category.html" %}
+
+<div class="col-sm-8 column">
+{%if not notexisting%}
+
+	<h1 class="text">{{category.name}}</h1>
+	<div class="mid">
+    {%if items%}
+    	{%for item in items%}
+      <a class="" href="{{url_for('ShowItem',category_name=category.name,item_name=item.name)}}">
+        <button type="button" class="btn-link">
+            <span>
+             <li class="subtext">{{item.name}}  </li>
+            </span>
+
+        </button>
+    </a>    	<br>
+    	{%endfor%}
+        {%endif%}
+	</div>
+{%endif%}
+
+{%if notexisting %}
+	{{ notexisting }}
+{%endif%}
+	<div class="control">
+ 		<a class="but" href="{{url_for('NewItem',category_name=category.name)}}">
+         	 <span class="glyphicon glyphicon-plus"></span>
+        </a>
+         <a class='but' href="{{url_for('EditCategory',category_name=category.name)}}">
+         	 <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+         <a class='but' href="{{url_for('deleteCategory',category_name=category.name)}}">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+	</div>
+</div>
+
+{%endblock%}

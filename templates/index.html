@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+  		</script>
+
+		<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body class="b">
+		<div class="container-fluid container">
+		  <!--header  -->
+
+			<header class="header">
+		        <div class="header_inner">	
+		          <div class="title">
+		          <a class="a" href="{{url_for('main')}}">
+		          <button type="button" class=" btn-link">
+		          <span>
+		               <h1 class="text">Item Catalog</h1>
+		               </span>
+		               </button>
+		               </a>
+		          </div>
+		          	<div class= "login">
+						{% if 'username' not in session%}
+						<a class="a" href="{{url_for('showLogin')}}">
+							<button  type='button' class=" btn-link right">
+							<span ><h4 class="text">click here to login</h4> </span>
+							</button>
+						</a>
+						{%else%}
+							<a class="a" href="{{url_for('disconnect')}}">
+								<button type="button" class="right btn-link">
+								<span>
+								<h4 class='text'>Logout </h4>
+								</span>
+									</button>
+							</a>
+						{%endif%}
+
+
+				  </div>
+				</div>
+	      	</header>
+	      <!-- separator -->
+			<div class="separator">
+	         </div>
+			<!--content -->
+	    	<main class="main">
+	    	<div class="row content">
+	    	
+
+	    		{% block content %}
+				{% endblock %}
+				</div>
+	  		</main>
+		</div>
+	</body>
+</html>

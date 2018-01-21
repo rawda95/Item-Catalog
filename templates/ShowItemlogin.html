@@ -1,0 +1,29 @@
+
+{% extends "index.html" %}
+{% block content %}
+
+<div class="col-sm-12 column">
+{%if not notexisting%}
+
+	<h1  class="text center bigsize">{{item.name}}</h1>
+	<h3 class="center subtext mid">{{item.description}} </h3>
+
+
+<div class="control">
+         <a class='but' href="{{url_for('EditItem',category_name=category.name,item_name=item.name)}}">
+             <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+         <a class='but' href="{{url_for('deleteItem',category_name=category.name,item_name=item.name)}}">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+	</div>
+
+{%endif%}
+
+{% if notexisting%}
+<h4 class="center error mid"> {{notexisting}} </h4>
+{% endif %}
+</div>
+{%endblock%}
+
+

@@ -1,13 +1,16 @@
 {% extends "index.html" %}
 {% block content %}
-{% include "category.html" %}
+{% include "categorylogin.html" %}
 
-<div class="col-sm-7">
+<div class="col-sm-7 column ">
 	<h1 class="text">Latest Items</h1>
-	<div class="subtext">
+	<div class="mid subtext">
 {%for item in lastItems%}
+	
    	<li>{{item.name}} </li>
+		
 {% endfor %}
 </div>
 </div>
+
 {%endblock%}

@@ -1,29 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+
+
+{% extends "index.html" %}
+{% block content %}
+
+{%if error %}
+    <h4 class="center text mid"> {{error}}</h4>
+{%endif%}
+
 {%if not error%}
-<h1>{{category.name}}</h1>
-<form action="{{ url_for('NewItem',category_name=category.name  )}}"method="post">
-    <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>name:
-    <input name="name" type="text">
-    <br>
-    <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>description:
-    <input name="description" type="text">
-    <br>
-	<button type="submit" class="" id="" type="submit">
-        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Create
+<div>
+    <h1 class="center text mid"> {{category.name}} </h1>
+</div>
+<br> <br>
+<form class="form-inline center" action="{{ url_for('NewItem',category_name=category.name  )}}"method="post">
+   <div class="form-group">
+      <label class="subtext" for="name">name: </label>
+    <input name="name" type="text" placeholder=' Enter name'>
+    </div>
+    <br> <br>
+    <div class="form-group">
+      <label class="subtext" for="description">description:</label>
+    <input name="description" type="text" placeholder=' Enter description'>
+    </div>
+    <br> <br>
+ <button type="submit" class="btn btn-success but" id="" type="submit">
+        <span class="" aria-hidden="true"></span>Create
     </button>
 </form>
-{%if error%}
-<p>{{error}}</p>
 {%endif%}
+{%if empty%}
+    <h4 class="center text mid"> {{empty}}</h4>
 {%endif%}
-{%if error%}
-{{error}}
-{%endif%}
-</body>
-</html>
+{%endblock%}
+
+
+
+
+

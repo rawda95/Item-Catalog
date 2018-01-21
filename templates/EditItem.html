@@ -1,27 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-{%if not error%}
-<form action="{{ url_for('EditItem',category_name = category.name ,item_name=item.name)}}" method="post">
-    <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>name:
-    <input name="name" type="text" value="{{item.name}}">
+{% extends "index.html" %}
+{% block content %}
+{%if not notexisting%}
+
+<div>
+    <h1 class="center text mid"> Edit {{item.name}} </h1>
+</div>
+<br> <br>
+<form class="form-inline center" 
+ action="{{ url_for('EditItem',category_name = category.name ,item_name=item.name)}}" 
+ method="post">
+
+
+   <div class="form-group">
+      <label class="text" for="name">name:</label>
+      <input name="name" type="text" value="{{item.name}}">
+    </div>
     <br>
-    <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>description:
-    <input name="description" type="text" value="{{item.description}}">
+    <div class="form-group">
+        <label class="text" for="description">description:</label>
+        <input name="description" type="text" value="{{item.description}}">
+    </div>
     <br>
-    <button type="submit" class="" id="" type="submit">
-        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>edit
+    <button type="submit" class="btn btn-success but" id="" type="submit">
+        <span class="" aria-hidden="true"></span>edit
     </button>
 
-</form>
+</form> 
 {%endif %}
+<br>
 {% if error%}
-<p>{{error}}</p>
+<h4 class="center error mid"> {{error}} </h4>
 {% endif %}
-</body>
-</html>
+{%if  notexisting%}
+<h3 class="center error mid"> {{notexisting}} </h3>
+{%endif%}
+{%endblock%}
+
+
