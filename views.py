@@ -567,4 +567,6 @@ def deleteItem(category_name, item_name):
 if __name__ == '__main__':
     app.debug = True
     app.secret_key = 'super_secret_key'
-    app.run(host='0.0.0.0', port=8000)
+    port = int(os.environ.get('PORT', 8000))   # Use PORT if it's there.
+    app.run(host='0.0.0.0', port=port)
+ 
