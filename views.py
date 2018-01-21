@@ -111,9 +111,9 @@ def fbconnect():
     login_session['access_token'] = token
 
     # Get user picture
-    url = 'https://graph.facebook.com/v2.8/me/picture?access_token=%s&redirect=0&height=200&width=200' % token
-    h = httplib2.Http()
-    result = h.request(url, 'GET')[1]
+    #url = 'https://graph.facebook.com/v2.8/me/picture?access_token=%s&redirect=0&height=200&width=200' % token
+    #h = httplib2.Http()
+    #result = h.request(url, 'GET')[1]
     data = json.loads(result)
 
     #login_session['picture'] = data["data"]["url"]
@@ -218,7 +218,7 @@ def gconnect():
     data = answer.json()
 
     login_session['username'] = data['name']
-    login_session['picture'] = data['picture']
+   # login_session['picture'] = data['picture']
     login_session['email'] = data['email']
     # ADD PROVIDER TO LOGIN SESSION
     login_session['provider'] = 'google'
@@ -275,7 +275,7 @@ def disconnect():
             del login_session['facebook_id']
         del login_session['username']
         del login_session['email']
-        del login_session['picture']
+        #del login_session['picture']
         del login_session['user_id']
         del login_session['provider']
         flash("You have successfully been logged out.")
