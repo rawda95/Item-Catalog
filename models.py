@@ -3,6 +3,8 @@ from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+from sqlalchemy_utils import database_exists, create_database
+
 
 Base = declarative_base()
 
@@ -64,6 +66,13 @@ class Item(Base):
         }
 
 
-engine = create_engine('sqlite:///itemsCatalog.db')
+engine = create_engine('postgresql://admin:admin@localhost/itemcatlog')
+
+if not database_exists(engine.url):
+    create_database(engine.url)
+
 
 Base.metadata.create_all(engine)
+
+
+

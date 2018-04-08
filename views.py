@@ -14,7 +14,7 @@ import requests, os
 CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
 
-engine = create_engine('sqlite:///itemsCatalog.db')
+engine = create_engine('postgresql://admin:admin@localhost/itemcatlog')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
@@ -285,7 +285,7 @@ def disconnect():
         return redirect(url_for('main'))
 
 
-@app.route('/login')
+@app.route('/login',strict_slashes=False)
 def showLogin():
     if 'user' in login_session:
         disconnect()
@@ -569,3 +569,7 @@ if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     port = int(os.environ.get('PORT', 8000))   # Use PORT if it's there.
     app.run(host='0.0.0.0', port=port)
+
+
+
+
