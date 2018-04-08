@@ -66,7 +66,7 @@ class Item(Base):
         }
 
 
-engine = create_engine('postgresql://admin:admin@localhost/itemcatlog')
+engine = create_engine('postgresql://catalog:catalog@localhost/itemscatalog')
 
 if not database_exists(engine.url):
     create_database(engine.url)

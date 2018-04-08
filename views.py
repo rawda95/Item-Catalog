@@ -14,7 +14,7 @@ import requests, os
 CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
 
-engine = create_engine('postgresql://admin:admin@localhost/itemcatlog')
+engine = create_engine('postgresql://catalog:catalog@localhost/itemscatalog')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
