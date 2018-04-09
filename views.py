@@ -10,9 +10,11 @@ from models import Base
 from models import Category, Item, User
 import requests, os
 
+BASE_DIR =os.path.dirname(os.path.abspath(__file__))
+
 # google client id
 CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r').read())['web']['client_id']
+    open(os.path.join(BASE_DIR,'client_secrets.json'), 'r').read())['web']['client_id']
 
 engine = create_engine('postgresql://catalog:catalog@localhost/itemscatalog')
 Base.metadata.bind = engine
