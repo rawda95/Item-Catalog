@@ -568,7 +568,7 @@ if __name__ == '__main__':
     app.debug = True
     app.secret_key = 'super_secret_key'
     port = int(os.environ.get('PORT', 8000))   # Use PORT if it's there.
-    app.run(host='52.29.29.55', port=port)
+    app.run(host='0.0.0.0', port=port)
 
 
 
